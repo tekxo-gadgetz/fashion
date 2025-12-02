@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FASHION</title>
+  <title>FOOTWEARS</title>
 
   <style>
     body {
@@ -13,7 +13,6 @@
       color: #fff;
     }
 
-    /* HEADING */
     .heading {
       background: #111;
       padding: 22px;
@@ -24,7 +23,6 @@
       border-bottom: 2px solid #1a1a1a;
     }
 
-    /* CATEGORY BUTTONS */
     .category-buttons {
       display: flex;
       justify-content: center;
@@ -55,7 +53,6 @@
       transform: translateY(-2px);
     }
 
-    /* PRODUCT LIST */
     .products {
       padding: 20px;
       display: flex;
@@ -63,7 +60,6 @@
       gap: 22px;
     }
 
-    /* PRODUCT CARD */
     .product {
       background: #1a1a1a;
       padding: 18px;
@@ -81,7 +77,6 @@
       box-shadow: 0 0 15px rgba(0,123,255,0.3);
     }
 
-    /* PRODUCT IMAGE */
     .product img {
       width: 120px;
       height: 120px;
@@ -91,7 +86,6 @@
       border: 2px solid #222;
     }
 
-    /* PRODUCT INFO */
     .product-info {
       flex: 1;
     }
@@ -105,9 +99,16 @@
       margin: 0 0 10px 0;
       color: #ccc;
       font-size: 14px;
+      white-space: pre-line;
     }
 
-    /* BUY BUTTON */
+    .price {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #00ccff;
+    }
+
     .buy-btn {
       padding: 10px 18px;
       background: linear-gradient(45deg, #0066ff, #00ccff);
@@ -126,7 +127,6 @@
       transform: scale(1.05);
     }
 
-    /* via whatsapp text */
     .whatsapp-text {
       font-size: 10px;
       color: #ccc;
@@ -135,91 +135,41 @@
     }
   </style>
 </head>
+
 <body>
 
-  <div class="heading">FASHION</div>
+  <div class="heading">FOOTWEARS</div>
 
-  <!-- CATEGORY BUTTONS -->
   <div class="category-buttons">
-    <button onclick="filterProducts('shoes')">Shoes</button>
-    <button onclick="filterProducts('tshirt')">T-Shirt</button>
-    <button onclick="filterProducts('watches')">Watches</button>
-    <button onclick="filterProducts('sunglasses')">Sunglasses</button>
+    <button onclick="filterProducts('gents')"></button>
+    <button onclick="filterProducts('ladies')"></button>
+    <button onclick="filterProducts('unisex')"></button>
   </div>
 
   <!-- PRODUCT LIST -->
   <div class="products" id="productList">
 
-    <!-- SHOES -->
-    
-    <div class="product" data-category="shoes">
-      <img src="#" alt="Casual Sneakers" />
+    <div class="product" data-category="unisex">
+      <img src="https://via.placeholder.com/120" alt="Product Image" />
       <div class="product-info">
-        <h3>#s</h3>
-        <p>#</p>
-        <button class="buy-btn" onclick="sendWhatsapp(this)">Get Now</button>
-        <div class="whatsapp-text">via whatsapp</div>
+        <h3></h3>
+        <p></p>
+
+        <div class="price"></div>
+
+        <button class="buy-btn" onclick="openInstagram()">GET NOW</button>
+        <div class="whatsapp-text">instagram</div>
       </div>
     </div>
 
-    <!-- T-SHIRTS -->
-    
-    <div class="product" data-category="tshirt">
-      <img src="#" alt="Plain White T-Shirt" />
-      <div class="product-info">
-        <h3>#</h3>
-        <p>#</p>
-        <button class="buy-btn" onclick="sendWhatsapp(this)">Get Now</button>
-        <div class="whatsapp-text">via whatsapp</div>
-      </div>
-    </div>
-
-    <!-- WATCHES -->
-   
-
-    <div class="product" data-category="watches">
-      <img src="#" alt="Smart Watch" />
-      <div class="product-info">
-        <h3>#</h3>
-        <p>#</p>
-        <button class="buy-btn" onclick="sendWhatsapp(this)">Get Now</button>
-        <div class="whatsapp-text">via whatsapp</div>
-      </div>
-    </div>
-
-    <!-- SUNGLASSES -->
-   
-    <div class="product" data-category="sunglasses">
-      <img src="#" />
-      <div class="product-info">
-        <h3>#</h3>
-        <p>#</p>
-        <button class="buy-btn" onclick="sendWhatsapp(this)">Get Now</button>
-        <div class="whatsapp-text">via whatsapp</div>
-      </div>
-    </div>
   </div>
 
   <script>
-    // WhatsApp number you want to chat with (include country code without +)
-    const whatsappNumber = "918139072654"; // Replace with your WhatsApp number
+    // Your Instagram page link
+    const instagramURL = "https://www.instagram.com/tekxo_fashion?igsh=MWI4ZnZraXh0bjQ4dw=="; // INSTAGRAM
 
-    function sendWhatsapp(button) {
-      const productDiv = button.closest(".product-info");
-      const productName = productDiv.querySelector("h3").innerText;
-      const productDesc = productDiv.querySelector("p").innerText;
-
-      // Prepare message
-      const message = `Hello! I'm interested in the product:\n*${productName}*\nDescription: ${productDesc}`;
-
-      // Encode message for URL
-      const encodedMessage = encodeURIComponent(message);
-
-      // Construct WhatsApp URL
-      const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-      // Open WhatsApp chat in new tab
-      window.open(url, "_blank");
+    function openInstagram() {
+      window.open(instagramURL, "_blank");
     }
 
     function filterProducts(category) {
@@ -237,4 +187,3 @@
 
 </body>
 </html>
-
